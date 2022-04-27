@@ -19,13 +19,3 @@ services:
     restart: always
     ports:
       - 27017:27017
-  jenkins:
-    image: jenkinsci/blueocean
-    user: root
-    ports:
-      - 8080:8080
-      - 8443:8443
-      - 50000:50000
-    volumes:
-      - ./jenkins_data:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
