@@ -29,7 +29,7 @@ pipeline {
                     sh "sed -i 's/DOCKER_REGISTRY/${docker_user}/g' backend-deployment.yaml"
                     sh "sed -i 's/BUILD_NUMBER/${BUILD_NUMBER}/g' backend-deployment.yaml"
                     sh 'scp -r -v -o StrictHostKeyChecking=no *.yaml eq901830@128.105.146.103:~/'
-                    sh 'ssh -o StrictHostKeyChecking=no eq901830@128.105.146.103 kubectl apply -f /users/eq901830/backend-deployement.yaml -n jenkins'
+                    sh 'ssh -o StrictHostKeyChecking=no eq901830@128.105.146.103 kubectl apply -f /users/eq901830/backend-deployment.yaml -n jenkins'
                     sh 'ssh -o StrictHostKeyChecking=no eq901830@128.105.146.103 kubectl apply -f /users/eq901830/backend-service.yaml -n jenkins'                                        
                 }
             }
