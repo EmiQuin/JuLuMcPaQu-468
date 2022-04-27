@@ -18,8 +18,3 @@ run: cat ~/.ssh/id_rsa
 Copy key, INCLUDING top and bottom lines
 
 Follow slides
-
-## To-do list:
-  -Build out Jenkinsfile in main
-  
-  -Follow slides to set up pipeline
