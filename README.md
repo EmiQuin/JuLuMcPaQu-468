@@ -1,3 +1,3 @@
 # Chess Game
 
-## Backend
+## Frontend
