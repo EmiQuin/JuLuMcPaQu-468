@@ -210,13 +210,13 @@ io.on("connection", (socket) => {
 		try {
 			const playerOne = await axios({
 				method: "get",
-				url: "http://localhost:5000/user/get",
+				url: "http://128.105.146.103:30081/user/get",
 				headers: config.header,
 				data: playerOneReq,
 			});
 			const playerTwo = await axios({
 				method: "get",
-				url: "http://localhost:5000/user/get",
+				url: "http://128.105.146.103:30081/user/get",
 				headers: config.header,
 				data: playerTwoReq,
 			});
@@ -258,14 +258,14 @@ io.on("connection", (socket) => {
 			payload.date = new Date();
 			payload.timeControl = result.timeControl;
 			const savedGame = await axios.post(
-				"http://localhost:5000/game/save",
+				"http://128.105.146.103:30081/game/save",
 				{
 					...payload,
 				},
 				config
 			);
 			await axios.post(
-				"http://localhost:5000/user/edit",
+				"http://128.105.146.103:30081/user/edit",
 				{
 					username: result.playerOne.name,
 					toEdit: {
@@ -280,7 +280,7 @@ io.on("connection", (socket) => {
 				config
 			);
 			await axios.post(
-				"http://localhost:5000/user/edit",
+				"http://128.105.146.103:30081/user/edit",
 				{
 					username: result.playerTwo.name,
 					toEdit: {
@@ -316,7 +316,7 @@ io.on("connection", (socket) => {
 			if (human !== null) {
 				try {
 					await axios.post(
-						"http://localhost:5000/user/edit",
+						"http://128.105.146.103:30081/user/edit",
 						{
 							username: human,
 							toEdit: {
@@ -332,7 +332,7 @@ io.on("connection", (socket) => {
 			} else {
 				try {
 					await axios.post(
-						"http://localhost:5000/user/edit",
+						"http://128.105.146.103:30081/user/edit",
 						{ username: result.playerOne, toEdit: { $inc: { draws: 1 } } },
 						config
 					);
@@ -341,7 +341,7 @@ io.on("connection", (socket) => {
 				}
 				try {
 					await axios.post(
-						"http://localhost:5000/user/edit",
+						"http://128.105.146.103:30081/user/edit",
 						{ username: result.playerTwo, toEdit: { $inc: { draws: 1 } } },
 						config
 					);
@@ -353,7 +353,7 @@ io.on("connection", (socket) => {
 			if (result.winner === "Computer") {
 				try {
 					await axios.post(
-						"http://localhost:5000/user/edit",
+						"http://128.105.146.103:30081/user/edit",
 						{ username: result.loser, toEdit: { $inc: { losses: 1 } } },
 						config
 					);
@@ -363,7 +363,7 @@ io.on("connection", (socket) => {
 			} else if (result.loser === "Computer") {
 				try {
 					await axios.post(
-						"http://localhost:5000/user/edit",
+						"http://128.105.146.103:30081/user/edit",
 						{ username: result.winner, toEdit: { $inc: { wins: 1 } } },
 						config
 					);
@@ -373,7 +373,7 @@ io.on("connection", (socket) => {
 			} else {
 				try {
 					await axios.post(
-						"http://localhost:5000/user/edit",
+						"http://128.105.146.103:30081/user/edit",
 						{ username: result.winner, toEdit: { $inc: { wins: 1 } } },
 						config
 					);
@@ -382,7 +382,7 @@ io.on("connection", (socket) => {
 				}
 				try {
 					await axios.post(
-						"http://localhost:5000/user/edit",
+						"http://128.105.146.103:30081/user/edit",
 						{ username: result.loser, toEdit: { $inc: { losses: 1 } } },
 						config
 					);
