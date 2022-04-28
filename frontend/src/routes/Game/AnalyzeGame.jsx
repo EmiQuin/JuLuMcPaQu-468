@@ -41,7 +41,7 @@ export default function AnalyzeGame() {
 			if (!isCancelled) {
 				try {
 					const { data } = await axios.post(
-						`http://128.105.146.103:50000/game/get`,
+						`http://128.105.146.103:30081/game/get`,
 						{
 							id: params.gameId,
 						},

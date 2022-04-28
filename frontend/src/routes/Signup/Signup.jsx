@@ -34,7 +34,7 @@ export default function Signup() {
 
 		try {
 			const { data } = await axios.post(
-				"http://128.105.146.103:50000/user/signup",
+				"http://128.105.146.103:30081/user/signup",
 				{ username, email, password },
 				config
 			);
