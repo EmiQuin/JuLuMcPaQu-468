@@ -9,9 +9,10 @@ metadata:
     io.kompose.service: mongo
   name: mongo
 spec:
+  type: ClusterIP
   ports:
-    - name: "27017"
-      port: 27017
+    - port: 27017
+      protocol: TCP
       targetPort: 27017
   selector:
     io.kompose.service: mongo
