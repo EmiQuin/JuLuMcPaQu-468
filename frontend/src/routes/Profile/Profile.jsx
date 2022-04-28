@@ -25,7 +25,7 @@ export default function Profile() {
 	const theme = useMantineTheme();
 	let config = {
 		method: "get",
-		url: "http://localhost:5000/profile",
+		url: "http://128.105.146.103:5000/profile",
 		headers: {
 			"Content-Type": "appliction/json",
 			Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -66,7 +66,7 @@ export default function Profile() {
 						},
 					};
 					const matchData = await axios.post(
-						"http://localhost:5000/game/getAllUser",
+						"http://128.105.146.103:5000/game/getAllUser",
 						{
 							idList: user.matchHistory,
 						},

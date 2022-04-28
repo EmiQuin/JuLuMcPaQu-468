@@ -10,7 +10,7 @@ import Error from "./routes/Error";
 import { Routes, Route } from "react-router-dom";
 import io from "socket.io-client";
 
-const endpoint = "http://localhost:5000";
+const endpoint = "http://128.105.146.103:5000";
 const socket = io(endpoint, { transports: ["websocket"] });
 
 export default function App() {
