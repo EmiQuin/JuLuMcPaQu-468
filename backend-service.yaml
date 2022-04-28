@@ -9,11 +9,11 @@ metadata:
     io.kompose.service: backend
   name: backend
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - port: 5000
-      protocol: TCP
       targetPort: 5000
+      nodePort: 50000
   selector:
     io.kompose.service: backend
 status:
