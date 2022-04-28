@@ -13,7 +13,7 @@ spec:
   ports:
     - port: 5000
       targetPort: 5000
-      nodePort: 50000
+      nodePort: 30081
   selector:
     io.kompose.service: backend
 status:
