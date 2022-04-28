@@ -27,7 +27,7 @@ spec:
         - env:
             - name: MONGO_URL
               value: mongo
-          image: backend
+          image: DOCKER_REGISTRY/backend:BUILD_NUMBER
           name: backend
           ports:
             - containerPort: 5000
