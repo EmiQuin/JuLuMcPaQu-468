@@ -18,6 +18,7 @@ pipeline {
                     sh 'echo $BACKEND_PORT >> backend/config.env'
                     sh 'echo $JWT_SECRET >> backend/config.env'
                     sh 'echo $JWT_EXPIRE >> backend/config.env'
+                    sh 'cat backend/config.env'
                     sh 'cd backend; docker build -t $DOCKER_USER/backend:$BUILD_NUMBER .'
                     sh 'docker push $DOCKER_USER/backend:$BUILD_NUMBER'
                 }
