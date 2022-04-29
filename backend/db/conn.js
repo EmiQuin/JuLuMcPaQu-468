@@ -3,7 +3,7 @@ const os = require('os');
 
 const connectDB = async () => {
 	const networkInterfaces = os.networkInterfaces();
-	console.log(`IPs: ${networkInterfaces}`)
+	console.log(`IPs: ${JSON.stringify(networkInterfaces)}`)
 	await mongoose.connect(process.env.ATLAS_URI, {
 		dbName: "ChessGame",
 		useNewUrlParser: true,
