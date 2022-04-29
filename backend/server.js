@@ -175,6 +175,7 @@ io.on("connection", (socket) => {
 	socket.on("moveMade", (move) => {
 		games[move.roomId].fen = move.fen;
 		games[move.roomId].turn += 1;
+		console.log(move);
 		socket.broadcast.to(move.roomId).emit("opponentMoved", move);
 	});
 
