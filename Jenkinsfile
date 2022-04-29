@@ -14,10 +14,10 @@ pipeline {
                 container('docker') {
                     sh 'echo $DOCKER_TOKEN | docker login --username $DOCKER_USER --password-stdin'
                     sh 'touch backend/config.env'
-                    sh 'echo $ATLAS_URI >> backend/config.env'
-                    sh 'echo $BACKEND_PORT >> backend/config.env'
-                    sh 'echo $JWT_SECRET >> backend/config.env'
-                    sh 'echo $JWT_EXPIRE >> backend/config.env'
+                    sh 'cat $ATLAS_URI >> backend/config.env'
+                    sh 'cat $BACKEND_PORT >> backend/config.env'
+                    sh 'cat $JWT_SECRET >> backend/config.env'
+                    sh 'cat $JWT_EXPIRE >> backend/config.env'
                     sh 'cd backend; docker build -t $DOCKER_USER/backend:$BUILD_NUMBER .'
                     sh 'docker push $DOCKER_USER/backend:$BUILD_NUMBER'
                 }
