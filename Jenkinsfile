@@ -13,7 +13,12 @@ pipeline {
             steps{
                 container('docker') {
                     sh 'echo $DOCKER_TOKEN | docker login --username $DOCKER_USER --password-stdin'
-                    sh 'cd backend; docker build -t $DOCKER_USER/backend:$BUILD_NUMBER .'
+                    sh 'cd backend; touch config.env'
+                    sh 'echo $ATLAS_URI >> config.env'
+                    sh 'echo $BACKEND_PORT >> config.env'
+                    sh 'echo $JWT_SECRET >> config.env'
+                    sh 'echo $JWT_EXPIRE >> config.env'
+                    sh 'docker build -t $DOCKER_USER/backend:$BUILD_NUMBER .'
                     sh 'docker push $DOCKER_USER/backend:$BUILD_NUMBER'
                 }
             }
