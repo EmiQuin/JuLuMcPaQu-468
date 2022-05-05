@@ -1,5 +1,6 @@
 import "./Home.css";
 import { Text } from "@mantine/core";
+import { Image } from '@mantine/core';
 
 function Home() {
 	return (
@@ -10,7 +11,10 @@ function Home() {
 			<Text>
 				Sign in and play through the menu on the left
 			</Text>
-			<img src="https://images.ctfassets.net/3s5io6mnxfqz/wfAz3zUBbrcf1eSMLZi8u/c03ac28c778813bd72373644ee8b8b02/AdobeStock_364059453.jpeg?fm=jpg&w=900&fl=progressive" alt="chess photo"
+			<Image
+				radius="md"
+				src="https://images.ctfassets.net/3s5io6mnxfqz/wfAz3zUBbrcf1eSMLZi8u/c03ac28c778813bd72373644ee8b8b02/AdobeStock_364059453.jpeg?fm=jpg&w=900&fl=progressive"
+				alt="chess photo"
 		</div>
 	);
 }
